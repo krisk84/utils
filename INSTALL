@@ -34,10 +34,6 @@ prepare_host() {
 		hostdeps="$hostdeps lib32ncurses5"
 	fi
 
-	for packet in $hostdeps; do
-		if ! grep -q -x -e "$packet" <<< "$installed"; then deps+=("$packet"); fi
-	done
-
 	if [[ ${#deps[@]} -gt 0 ]]; then
 		echo "Installing dependencies"
 		echo "Requires root privileges, please enter your passowrd!"
